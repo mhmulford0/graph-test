@@ -1,0 +1,122 @@
+specVersion: 0.0.2
+schema:
+  file: sample.schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: erc20
+    network: mainnet
+    source:
+      address: "0xA3B26327482312f70E077aAba62336f7643e41E1"
+      abi: IERC20
+      startBlock: 11633151
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - ERC20Contract
+      abis:
+        - name: IERC20
+          file: ../node_modules/@openzeppelin/contracts/build/contracts/IERC20Metadata.json
+      eventHandlers:
+        - event: Approval(indexed address,indexed address,uint256)
+          handler: handleApproval
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
+      file: ../node_modules/@openzeppelin/subgraphs/src/datasources/erc20.ts
+  - kind: ethereum/contract
+    name: accesscontrol
+    network: mainnet
+    source:
+      address: "0xA3B26327482312f70E077aAba62336f7643e41E1"
+      abi: AccessControl
+      startBlock: 11633151
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - AccessControl
+      abis:
+        - name: AccessControl
+          file: ../node_modules/@openzeppelin/contracts/build/contracts/IAccessControl.json
+      eventHandlers:
+        - event: RoleAdminChanged(indexed bytes32,indexed bytes32,indexed bytes32)
+          handler: handleRoleAdminChanged
+        - event: RoleGranted(indexed bytes32,indexed address,indexed address)
+          handler: handleRoleGranted
+        - event: RoleRevoked(indexed bytes32,indexed address,indexed address)
+          handler: handleRoleRevoked
+      file: ../node_modules/@openzeppelin/subgraphs/src/datasources/accesscontrol.ts
+  - kind: ethereum/contract
+    name: erc721
+    network: mainnet
+    source:
+      address: "0xB1C52075b276f87b1834919167312221d50c9D16"
+      abi: IERC721
+      startBlock: 9917641
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - ERC721Contract
+      abis:
+        - name: IERC721
+          file: ../node_modules/@openzeppelin/contracts/build/contracts/IERC721Metadata.json
+      eventHandlers:
+        - event: Approval(indexed address,indexed address,indexed uint256)
+          handler: handleApproval
+        - event: ApprovalForAll(indexed address,indexed address,bool)
+          handler: handleApprovalForAll
+        - event: Transfer(indexed address,indexed address,indexed uint256)
+          handler: handleTransfer
+      file: ../node_modules/@openzeppelin/subgraphs/src/datasources/erc721.ts
+  - kind: ethereum/contract
+    name: erc721-3
+    network: mainnet
+    source:
+      address: "0x799DAa22654128d0C64d5b79eac9283008158730"
+      abi: IERC721
+      startBlock: 9917642
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - ERC721Contract
+      abis:
+        - name: IERC721
+          file: ../node_modules/@openzeppelin/contracts/build/contracts/IERC721Metadata.json
+      eventHandlers:
+        - event: Approval(indexed address,indexed address,indexed uint256)
+          handler: handleApproval
+        - event: ApprovalForAll(indexed address,indexed address,bool)
+          handler: handleApprovalForAll
+        - event: Transfer(indexed address,indexed address,indexed uint256)
+          handler: handleTransfer
+      file: ../node_modules/@openzeppelin/subgraphs/src/datasources/erc721.ts
+  - kind: ethereum/contract
+    name: erc721-4
+    network: mainnet
+    source:
+      address: "0xC76A18c78B7e530A165c5683CB1aB134E21938B4"
+      abi: IERC721
+      startBlock: 9917639
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - ERC721Contract
+      abis:
+        - name: IERC721
+          file: ../node_modules/@openzeppelin/contracts/build/contracts/IERC721Metadata.json
+      eventHandlers:
+        - event: Approval(indexed address,indexed address,indexed uint256)
+          handler: handleApproval
+        - event: ApprovalForAll(indexed address,indexed address,bool)
+          handler: handleApprovalForAll
+        - event: Transfer(indexed address,indexed address,indexed uint256)
+          handler: handleTransfer
+      file: ../node_modules/@openzeppelin/subgraphs/src/datasources/erc721.ts
